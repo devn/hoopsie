@@ -1,0 +1,17 @@
+(page "index.html"
+  (:require-macros [hoopsie.macros :as macros]))
+
+(def name-map (macros/read-config))
+
+(defn rand-name []
+  (let [fname (rand-nth (:first name-map))
+        lname (rand-nth (:last name-map))] (str fname " " lname)))
+
+(defc hooper-name (rand-name))
+
+(html
+ (head (link :rel "stylesheet" :type "text/css" :href "css/main.css"))
+ (body
+  (h1 (text "~{hooper-name}"))
+  (button :on-click #(reset! hooper-name (rand-name))
+          (text "Gimme another name!"))))
