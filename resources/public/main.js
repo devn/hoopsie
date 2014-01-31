@@ -26559,7 +26559,8 @@ goog.require("tailrecursion.hoplon");
 goog.require("tailrecursion.hoplon");
 goog.require("tailrecursion.javelin");
 tailrecursion.hoplon.app_pages.G__3771.hoploninit = function hoploninit() {
-  tailrecursion.hoplon.app_pages.G__3771.name_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "first", "first", 1111344674), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Dizzy"], null), new cljs.core.Keyword(null, "last", "last", 1017218568), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Hoops"], null)], null);
+  tailrecursion.hoplon.app_pages.G__3771.name_map = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "first", "first", 1111344674), new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Dizzy", "Mr.", "Mr.", "Hoops", "Hooping", "Lovely", "Divine"], null), new cljs.core.Keyword(null, "last", "last", 1017218568), new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Hoops", "Galloopsie", "Hoopsaphone", "Hoop", "Hoops"], 
+  null)], null);
   tailrecursion.hoplon.app_pages.G__3771.rand_name = function rand_name() {
     var fname = cljs.core.rand_nth.call(null, (new cljs.core.Keyword(null, "first", "first", 1111344674)).cljs$core$IFn$_invoke$arity$1(tailrecursion.hoplon.app_pages.G__3771.name_map));
     var lname = cljs.core.rand_nth.call(null, (new cljs.core.Keyword(null, "last", "last", 1017218568)).cljs$core$IFn$_invoke$arity$1(tailrecursion.hoplon.app_pages.G__3771.name_map));
