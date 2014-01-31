@@ -1,0 +1,1 @@
+web: cp resources/publics/* .
