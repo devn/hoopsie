@@ -10,7 +10,8 @@
 (defc hooper-name (rand-name))
 
 (html
- (head (link :rel "stylesheet" :type "text/css" :href "css/main.css"))
+ (head (link :rel "stylesheet" :type "text/css" :href "css/main.css")
+       (title "Hooper Name Generator"))
  (body
   (h1 (text "~{hooper-name}"))
   (button :on-click #(reset! hooper-name (rand-name))
