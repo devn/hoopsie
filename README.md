@@ -1,6 +1,6 @@
 # hoopsie
 
-A Hoplon project designed to...well, that part is up to you.
+A Hoplon project to generate Hula Hooper names. Extremely important.
 
 ## Dependencies
 
@@ -30,7 +30,7 @@ $ open index.html
 
 ## License
 
-Copyright © 2014, **Your Name Goes Here**
+Copyright © 2014, **Devin Walters**
 
 [1]: https://github.com/tailrecursion/boot
 [2]: https://github.com/technomancy/leiningen
