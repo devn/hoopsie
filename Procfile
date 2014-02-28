@@ -1,1 +1,1 @@
-web: cp www/resources/public/* www/. && ./boot.sh
+web: cp -R www/resources/public/* www/. && ./boot.sh

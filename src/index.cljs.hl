@@ -1,9 +1,10 @@
 (page "index.html"
   (:require-macros [hoopsie.macros :as macros])
-  (:require [tailrecursion.hoplon.reload :refer [reload-all]]))
+  ;; (:require [tailrecursion.hoplon.reload :refer [reload-all]])
+  )
 
 ;; Development
-(reload-all)
+;; (reload-all)
 
 (def name-map (macros/read-config))
 
