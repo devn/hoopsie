@@ -1,18 +1,44 @@
 (page "index.html"
-  (:require-macros [hoopsie.macros :as macros]))
+  (:require-macros [hoopsie.macros :as macros])
+  (:require [tailrecursion.hoplon.reload :refer [reload-all]]))
+
+;; Development
+(reload-all)
 
 (def name-map (macros/read-config))
 
+(defn rnd [m k]
+  (rand-nth (get m k)))
+
 (defn rand-name []
-  (let [fname (rand-nth (:first name-map))
-        lname (rand-nth (:last name-map))] (str fname " " lname)))
+  (let [fname (rnd name-map :first)
+        lname (rnd name-map :last)] (str fname " " lname)))
 
 (defc hooper-name (rand-name))
 
+;; TODO: Why doesn't this work in HEAD, but does in body?
+(defn stylesheet-link [path]
+  (link :rel "stylesheet" :type "text/css" :href path))
+
+(defn link-to [url title]
+  (a :href url title))
+
+(def created-by
+  (let [me (link-to "https://www.github.com/devn" "Devin Walters")
+        hoplon (link-to "http://hoplon.io/" "Hoplon")]
+    (str "Created by " me " using " hoplon)))
+
 (html
- (head (link :rel "stylesheet" :type "text/css" :href "css/main.css")
-       (title "Hooper Name Generator"))
+ (head
+  (stylesheet-link "css/bootstrap.css")
+  (stylesheet-link "css/main.css")
+  (title "Hooper Name Generator"))
  (body
-  (h1 (text "~{hooper-name}"))
-  (button :on-click #(reset! hooper-name (rand-name))
-          (text "Gimme another name!"))))
+  (div :class "col-xs-6 center"
+   (p :class "center-block"
+    (h1 :class "hooper-name" (text "~{hooper-name}"))
+    (button :class "btn btn-primary btn-lg btn-block"
+            :on-click #(reset! hooper-name (rand-name))
+            (text "Generate Hooper Name")))
+   (footer :class "center-block footer"
+     (p created-by)))))
