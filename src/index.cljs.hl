@@ -1,7 +1,6 @@
 (page "index.html"
-  (:require-macros [hoopsie.macros :as macros])
-  ;; (:require [tailrecursion.hoplon.reload :refer [reload-all]])
-  )
+; (:require [tailrecursion.hoplon.reload :refer [reload-all]])
+  (:require-macros [hoopsie.macros :as macros]))
 
 ;; Development
 ;; (reload-all)
@@ -17,7 +16,6 @@
 
 (defc hooper-name (rand-name))
 
-;; TODO: Why doesn't this work in HEAD, but does in body?
 (defn stylesheet-link [path]
   (link :rel "stylesheet" :type "text/css" :href path))
 
@@ -27,7 +25,7 @@
 (def created-by
   (let [me (link-to "https://www.github.com/devn" "Devin Walters")
         hoplon (link-to "http://hoplon.io/" "Hoplon")]
-    (str "Created by " me " using " hoplon)))
+    (p "Created by " me " using " hoplon)))
 
 (html
  (head
