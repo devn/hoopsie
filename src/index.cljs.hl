@@ -14,8 +14,6 @@
   (let [fname (rnd name-map :first)
         lname (rnd name-map :last)] (str fname " " lname)))
 
-(defc hooper-name (rand-name))
-
 (defn stylesheet-link [path]
   (link :rel "stylesheet" :type "text/css" :href path))
 
@@ -27,17 +25,33 @@
         hoplon (link-to "http://hoplon.io/" "Hoplon")]
     (p "Created by " me " using " hoplon)))
 
+(defn center-xy [& body]
+  (div :class "col-xs-6 center" body))
+
+(defn large-button [txt click-fn]
+  (button :class "btn btn-primary btn-lg btn-block"
+          :on-click click-fn
+          txt))
+
+(defc hooper-name (rand-name))
+
+(defn hooper-name-h1 []
+  (h1 :class "hooper-name"
+      (text "~{hooper-name}")))
+
+(defn custom-footer []
+  (footer :class "center-block footer"
+          (p created-by))) ;; Works if you wrap created-by in parens, hmmm...
+
 (html
  (head
   (stylesheet-link "css/bootstrap.css")
   (stylesheet-link "css/main.css")
   (title "Hooper Name Generator"))
  (body
-  (div :class "col-xs-6 center"
+  (center-xy
    (p :class "center-block"
-    (h1 :class "hooper-name" (text "~{hooper-name}"))
-    (button :class "btn btn-primary btn-lg btn-block"
-            :on-click #(reset! hooper-name (rand-name))
-            (text "Generate Hooper Name")))
-   (footer :class "center-block footer"
-     (p created-by)))))
+      (hooper-name-h1)
+      (large-button "Generate Hooper Name"
+                    #(reset! hooper-name (rand-name))))
+   (custom-footer))))
