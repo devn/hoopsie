@@ -27,6 +27,17 @@
         hoplon (link-to "http://hoplon.io/" "Hoplon")]
     (p "Created by " me " using " hoplon)))
 
+;; (defc first-name (cell "Julia"))
+;; (defc last-name (cell "Johnson"))
+
+;; (defn custom-first []
+;;   (get name-map :first)
+;;   (get (->> (get name-map :first) sort (group-by first))
+;;        (first @first-name)
+;;        (rand-nth (map char (range 97 123)))))
+
+;; (defc whatev (cell (custom-first)))
+
 (html
  (head
   (stylesheet-link "css/bootstrap.css")
@@ -34,8 +45,19 @@
   (title "Hooper Name Generator"))
  (body
   (div :class "col-xs-6 center"
+       ;; (form
+       ;;  (label (text "First Name"))
+       ;;  (input
+       ;;   :id "fname"
+       ;;   :value @first-name
+       ;;   :on-change #(reset! first-name (custom-first)))
+       ;;  (label (text "Last Name"))
+       ;;  (input
+       ;;   :id "lname"
+       ;;   :value @last-name))
    (p :class "center-block"
     (h1 :class "hooper-name" (text "~{hooper-name}"))
+    ;; (h1 (text "~{whatev}"))
     (button :class "btn btn-primary btn-lg btn-block"
             :on-click #(reset! hooper-name (rand-name))
             (text "Generate Hooper Name")))
