@@ -47,7 +47,7 @@
  (head
   (stylesheet-link "css/bootstrap.css")
   (stylesheet-link "css/main.css")
-  (title "Hooper Name Generator"))
+  (title "The Hooper Name Generator"))
  (body
   (center-xy
    (p :class "center-block"
