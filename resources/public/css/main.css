@@ -12,14 +12,13 @@ body {
   left: 0;
   width: 80%;
   height: 18%;
-  /* background-color: #eee; */
-  /* border-radius: 5px; */
-  /* border: 1px solid #ccc; */
 }
 
 .hooper-name {
   padding-bottom: 30px;
   text-align: center;
+  margin-top: 0px;
+  -webkit-transition: padding-bottom 0.5s ease-in-out;
 }
 
 .footer {

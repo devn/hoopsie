@@ -22,8 +22,12 @@
 
 (def created-by
   (let [me (link-to "https://www.github.com/devn" "Devin Walters")
-        hoplon (link-to "http://hoplon.io/" "Hoplon")]
-    (p "Created by " me " using " hoplon)))
+        hoplon (link-to "http://hoplon.io/" "Hoplon")
+        danielle (link-to "http://www.hoopelation.com/" "Danielle Lee")
+        tiana (link-to "https://www.youtube.com/user/wantonamara" "Tiana Zoumer")]
+    (div (p "Created by " me " using " hoplon)
+         (p "Based on a running joke between "
+            tiana ", Robin, and " danielle " in Madison, WI."))))
 
 (defn center-xy [& body]
   (div :class "col-xs-6 center" body))
@@ -49,6 +53,9 @@
   (stylesheet-link "css/main.css")
   (title "The Hooper Name Generator"))
  (body
+  (img :class "center-block logo"
+       :src "img/your_hooper_name.png"
+       :alt "Your Hooper Name")
   (center-xy
    (p :class "center-block"
       (hooper-name-h1)
