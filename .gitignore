@@ -1,3 +1,4 @@
 .boot/
 .nrepl-port
 target/
+resources/

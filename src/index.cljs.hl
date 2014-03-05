@@ -29,9 +29,6 @@
          (p "Based on a running joke between "
             tiana ", Robin, and " danielle " in Madison, WI."))))
 
-(defn center-xy [& body]
-  (div :class "col-xs-6 center" body))
-
 (defn large-button [txt click-fn]
   (button :class "btn btn-primary btn-lg btn-block"
           :on-click click-fn
@@ -53,12 +50,12 @@
   (stylesheet-link "css/main.css")
   (title "The Hooper Name Generator"))
  (body
-  (img :class "center-block logo"
-       :src "img/your_hooper_name.png"
-       :alt "Your Hooper Name")
-  (center-xy
-   (p :class "center-block"
-      (hooper-name-h1)
-      (large-button "Generate Hooper Name"
-                    #(reset! hooper-name (rand-name))))
-   (custom-footer))))
+  (div :class "container"
+     (img :class "center-block logo"
+          :src "img/your_hooper_name.png"
+          :alt "Your Hooper Name")
+     (p :class "center-block"
+        (hooper-name-h1)
+        (large-button "Generate Hooper Name"
+                      #(reset! hooper-name (rand-name))))
+     (custom-footer))))
