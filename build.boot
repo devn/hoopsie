@@ -3,10 +3,10 @@
 #tailrecursion.boot.core/version "2.2.1"
 
 (set-env!
-  :project      'foobar
+  :project      'hoopsie
   :version      "0.1.0-SNAPSHOT"
-  :dependencies '[[tailrecursion/boot.task   "2.1.0"]
-                  [tailrecursion/hoplon      "5.4.0"]
+  :dependencies '[[tailrecursion/boot.task   "2.1.1"]
+                  [tailrecursion/hoplon      "5.5.1"]
                   [tailrecursion/boot.notify "2.0.0-SNAPSHOT"]
                   [tailrecursion/boot.ring   "0.1.0-SNAPSHOT"]
                   [org.clojure/clojurescript "0.0-2156"]]
@@ -21,14 +21,22 @@
          '[tailrecursion.boot.task.ring   :refer [dev-server]])
 
 (deftask development
-  "Build foobar for development."
+  "Build hoopsie for development."
   []
-  (comp (watch) (hoplon {:prerender false :pretty-print true})))
+  (comp (watch)
+        (hoplon {:prerender false
+                 :pretty-print true
+                 :source-map true})
+        (dev-server)))
 
-(deftask development-more
-  "Build development with the new hotness."
+(deftask development-icq
+  "Build development with ICQ enabled."
   []
-  (comp (watch) (hear) (hoplon {:prerender false}) (dev-server)))
+  (comp (watch)
+        (hear)
+        (hoplon {:prerender false
+                 :source-map true})
+        (dev-server)))
 
 (deftask production
   "Build foobar for production."
